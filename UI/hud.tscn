@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dojhi8fiftkj3"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EmployeeSatisfactionLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="EmployeeCountLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="CapitalLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="RunningCostsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="PublicRelationsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="ProductPortfolioLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="MonthlyTurnoverLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "0"
