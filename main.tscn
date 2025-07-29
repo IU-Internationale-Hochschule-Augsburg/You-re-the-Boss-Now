@@ -1,9 +1,27 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5vvvqe3m4f35"]
+[gd_scene load_steps=14 format=3 uid="uid://c5vvvqe3m4f35"]
 
 [ext_resource type="Script" uid="uid://bh6ngqtdvtdc2" path="res://Scripts/World.gd" id="1_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://dpu5crbpgl5oh" path="res://Assets/Office.png" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://ddxowfc7cw38p" path="res://Assets/Office.png" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cxr1jkwwthcok" path="res://Assets/CEO.png" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://c3bhs476jy3tf" path="res://Scripts/CEO.gd" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://b6g1aodfnje1u" path="res://Assets/whiteboard.png" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dojhi8fiftkj3" path="res://UI/hud.tscn" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://c1i85y8r6eh24" path="res://Scripts/HUD.gd" id="7_272bh"]
+
+[sub_resource type="Animation" id="Animation_272bh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_7mycd"]
 resource_name = "walking"
@@ -21,21 +39,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, -0.0872665, 0.0872665]
-}
-
-[sub_resource type="Animation" id="Animation_272bh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5vw27"]
@@ -84,11 +87,11 @@ _data = {
 [node name="World" type="Node2D"]
 script = ExtResource("1_1bvp3")
 
-[node name="Office" type="Node2D" parent="."]
-
 [node name="Office2" type="Sprite2D" parent="."]
-position = Vector2(0, 8)
 texture = ExtResource("1_h2yge")
+offset = Vector2(-125, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Office2"]
 
 [node name="Ceo" type="Sprite2D" parent="."]
 position = Vector2(-601, 122)
@@ -107,9 +110,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_efxa6")
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.75, 0.75)
-
 [node name="Control" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -117,20 +117,37 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
-layout_mode = 0
-offset_left = -365.0
-offset_top = -302.0
-offset_right = 212.0
-offset_bottom = -196.0
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -4.119
+anchor_top = -2.702
+anchor_right = 6.378
+anchor_bottom = 9.95
+offset_left = -336.24
+offset_top = -277.92
+offset_right = 87.88
+offset_bottom = -3.05176e-05
+texture = ExtResource("5_lquwl")
+region_rect = Rect2(143.182, 142.053, 747.521, 744.732)
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.535
+anchor_bottom = 0.737
+offset_left = 136.0
+offset_top = 84.0
+offset_right = 261.46
+offset_bottom = -387.808
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 40
 text = "Kaffee kostenlos anbieten"
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HUD" parent="." instance=ExtResource("6_7mycd")]
+script = ExtResource("7_272bh")
 
 [connection signal="arrived_at_desk" from="Ceo" to="." method="_on_ceo_arrived_at_desk"]
 [connection signal="animation_finished" from="Ceo/PositionAnimationPlayer" to="Ceo" method="_on_position_animation_player_animation_finished"]

@@ -27,7 +27,6 @@ func get_state() -> Dictionary:
 		"capital": capital,
 		"monthly_turnover": monthly_turnover,
 		"running_costs": running_costs,
-		"product_portfolio": product_portfolio,
 		"public_relations": public_relations,
 		"employee_count": employee_count,
 		"employee_satisfaction": employee_satisfaction
