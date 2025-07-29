@@ -1,6 +1,6 @@
 extends Node
 
-@export var capital = 1000000
+@export var capital = 100000
 @export var monthly_turnover = 160000
 @export var running_costs = 50000
 @export var product_portfolio = 1

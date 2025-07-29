@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://c5vvvqe3m4f35"]
 
 [ext_resource type="Script" uid="uid://bh6ngqtdvtdc2" path="res://Scripts/World.gd" id="1_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://ddxowfc7cw38p" path="res://Assets/Office.png" id="1_h2yge"]
-[ext_resource type="Texture2D" uid="uid://cxr1jkwwthcok" path="res://Assets/CEO.png" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://ddxowfc7cw38p" path="res://Assets/Environment/Office.png" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://cxr1jkwwthcok" path="res://Assets/Characters/CEO.png" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://c3bhs476jy3tf" path="res://Scripts/CEO.gd" id="3_lquwl"]
-[ext_resource type="Texture2D" uid="uid://b6g1aodfnje1u" path="res://Assets/whiteboard.png" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://b6g1aodfnje1u" path="res://Assets/Environment/whiteboard.png" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dojhi8fiftkj3" path="res://UI/hud.tscn" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://c1i85y8r6eh24" path="res://Scripts/HUD.gd" id="7_272bh"]
 
