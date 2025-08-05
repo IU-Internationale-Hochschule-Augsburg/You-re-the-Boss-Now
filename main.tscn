@@ -110,41 +110,61 @@ libraries = {
 &"": SubResource("AnimationLibrary_efxa6")
 }
 
-[node name="Control" type="Control" parent="."]
-visible = false
+[node name="TaskControl" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = 2.0
+offset_right = -120.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+[node name="TaskBg" type="TextureRect" parent="TaskControl"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -4.119
-anchor_top = -2.702
-anchor_right = 6.378
-anchor_bottom = 9.95
-offset_left = -336.24
-offset_top = -277.92
-offset_right = 87.88
-offset_bottom = -3.05176e-05
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -260.0
+offset_right = 769.0
+offset_bottom = 764.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_lquwl")
-region_rect = Rect2(143.182, 142.053, 747.521, 744.732)
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
+stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/NinePatchRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.535
-anchor_bottom = 0.737
-offset_left = 136.0
-offset_top = 84.0
-offset_right = 261.46
-offset_bottom = -387.808
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 40
-text = "Kaffee kostenlos anbieten"
+[node name="VBoxContainer" type="VBoxContainer" parent="TaskControl"]
+layout_mode = 0
+offset_left = -198.0
+offset_top = -206.0
+offset_right = -158.0
+offset_bottom = -166.0
+scale = Vector2(10.08, 10.08)
+
+[node name="TaskLabel" type="Label" parent="TaskControl/VBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+text = "test text"
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TaskControl/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TaskControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="TaskControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="HUD" parent="." instance=ExtResource("6_7mycd")]
 script = ExtResource("7_272bh")
