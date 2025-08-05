@@ -1,7 +1,7 @@
 extends Node
 
 @export var capital = 100000
-@export var monthly_turnover = 160000
+@export var monthly_turnover = 10000
 @export var running_costs = 50000
 @export var product_portfolio = 1
 @export var public_relations = .1

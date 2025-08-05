@@ -16,6 +16,6 @@ func update_company_state():
 	$CompanyStateContainer/EmployeeSatisfactionLabel.text = "%s%%" % [str(int(states.get("employee_satisfaction") * 100))]
 	$CompanyStateContainer/PublicRelationsLabel.text = "%s%%" % [str(int(states.get("public_relations") * 100))]
 	$CompanyStateContainer/EmployeeCountLabel.text = str(states.get("employee_count"))
-	$CompanyStateContainer/CapitalLabel.text = num_shorten(states.get("capital")) + " €"
-	$CompanyStateContainer/RunningCostsLabel.text = num_shorten(states.get("running_costs")) + " €"
-	$CompanyStateContainer/MonthlyTurnoverLabel.text = num_shorten(states.get("monthly_turnover")) + " €"
+	$CompanyStateContainer/CapitalLabel.text = num_shorten(states.get("capital")) + "€"
+	$CompanyStateContainer/RunningCostsLabel.text = num_shorten(states.get("running_costs")) + "€"
+	$CompanyStateContainer/MonthlyTurnoverLabel.text = num_shorten(states.get("monthly_turnover")) + "€"
