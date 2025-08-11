@@ -183,3 +183,5 @@ script = ExtResource("7_272bh")
 
 [connection signal="arrived_at_desk" from="Ceo" to="." method="_on_ceo_arrived_at_desk"]
 [connection signal="animation_finished" from="Ceo/PositionAnimationPlayer" to="Ceo" method="_on_position_animation_player_animation_finished"]
+[connection signal="pressed" from="TaskControl/VBoxContainer/HBoxContainer/AButton" to="." method="_on_button_a_pressed"]
+[connection signal="pressed" from="TaskControl/VBoxContainer/HBoxContainer/BButton" to="." method="_on_button_b_pressed"]

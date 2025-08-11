@@ -10,9 +10,9 @@ extends Node
 
 func apply_effects(effects: Dictionary) -> void:
 	for key in effects.keys():
-		if self.has_method(key):
+		if self.get(key):
 			self.set(key, self.get(key) + effects[key])
-		clamp_metrics()
+	clamp_metrics()
 
 func clamp_metrics() -> void:
 	public_relations = clamp(public_relations, 0.0, 1.0)
