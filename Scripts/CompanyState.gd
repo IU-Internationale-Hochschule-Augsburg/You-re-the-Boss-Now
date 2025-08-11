@@ -18,7 +18,7 @@ func clamp_metrics() -> void:
 	public_relations = clamp(public_relations, 0.0, 1.0)
 	employee_satisfaction = clamp(employee_satisfaction, 0.0, 1.0)
 	product_portfolio = max(product_portfolio, 0)
-	employee_count = max(employee_count, 0)
+	employee_count = int(max(employee_count, 0))
 	capital = max(capital, 0)
 	running_costs = max(running_costs, 10000)
 
