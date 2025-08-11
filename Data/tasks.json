@@ -1,0 +1,44 @@
+[
+	{
+		"prompt": "Due to a shortage of Projects 5 of your employees don´t have any work to do. They don´t make any turnover, are you willing to keep these employees?",
+		"option_a": "Layoffs",
+		"option_b": "Keep Employees",
+		"effects_a": {
+			"capital": 0,
+			"monthly_turnover": -50000,
+			"running_costs": -25000,
+			"public_relations": 0,
+			"employee_count": -5,
+			"employee_satisfaction": -0.2
+		},
+		"effects_b": {
+			"capital": 0,
+			"monthly_turnover": -50000,
+			"running_costs": 0,
+			"public_relations": 0,
+			"employee_count": 0,
+			"employee_satisfaction": 0.1
+		}
+	},
+	{
+		"prompt": "Your office coffee machine broke down. Do you replace it immediately or wait until next month?",
+		"option_a": "Replace Now",
+		"option_b": "Wait",
+		"effects_a": {
+			"capital": -1000,
+			"monthly_turnover": 0,
+			"running_costs": 0,
+			"public_relations": 0,
+			"employee_count": 0,
+			"employee_satisfaction": 0.1
+		},
+		"effects_b": {
+			"capital": 0,
+			"monthly_turnover": 0,
+			"running_costs": 0,
+			"public_relations": 0,
+			"employee_count": 0,
+			"employee_satisfaction": -0.1
+		}
+	}
+]

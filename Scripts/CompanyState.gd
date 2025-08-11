@@ -1,7 +1,7 @@
 extends Node
 
 @export var capital = 100000
-@export var monthly_turnover = 10000
+@export var monthly_turnover = 100000
 @export var running_costs = 50000
 @export var product_portfolio = 1
 @export var public_relations = .1
@@ -23,7 +23,7 @@ func clamp_metrics() -> void:
 	running_costs = max(running_costs, 10000)
 
 func get_state() -> Dictionary:
-	return{
+	return {
 		"capital": capital,
 		"monthly_turnover": monthly_turnover,
 		"running_costs": running_costs,
