@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://jnl2xuox3e3w"]
+
+[ext_resource type="FontFile" uid="uid://do3u8m48x1hbt" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="1_k4c3g"]
+
+[resource]
+default_font = ExtResource("1_k4c3g")
+Label/colors/font_color = Color(0.972549, 0.972549, 1, 1)
+Label/font_sizes/font_size = 26
+Label/fonts/font = ExtResource("1_k4c3g")

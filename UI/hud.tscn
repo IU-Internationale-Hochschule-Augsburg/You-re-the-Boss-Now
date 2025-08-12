@@ -27,14 +27,18 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -184.0
+offset_left = -183.0
+offset_top = 15.0
+offset_right = 1.0
+offset_bottom = 15.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 3
+theme_override_constants/v_separation = 60
 
 [node name="CapitalIcon" type="Sprite2D" parent="CompanyStateContainer"]
-position = Vector2(-40, 28)
+position = Vector2(-40, 11)
 scale = Vector2(0.05, 0.046)
 texture = ExtResource("1_0j753")
 
@@ -45,7 +49,7 @@ text = "0"
 text_overrun_behavior = 1
 
 [node name="MonthlyTurnoverIcon" type="Sprite2D" parent="CompanyStateContainer"]
-position = Vector2(-40, 88)
+position = Vector2(-40, 97)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_i0a73")
 
@@ -56,7 +60,7 @@ text = "0"
 text_overrun_behavior = 1
 
 [node name="RunningCostsIcon" type="Sprite2D" parent="CompanyStateContainer"]
-position = Vector2(-40, 146)
+position = Vector2(-40, 183)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("4_pf7ph")
 
@@ -67,7 +71,7 @@ text = "0"
 text_overrun_behavior = 1
 
 [node name="EmployeeCountIcon" type="Sprite2D" parent="CompanyStateContainer"]
-position = Vector2(-40, 205)
+position = Vector2(-40, 269)
 scale = Vector2(0.05, 0.046)
 texture = ExtResource("5_vs5gg")
 
@@ -78,7 +82,7 @@ text = "0"
 text_overrun_behavior = 1
 
 [node name="EmployeeSatisfactionIcon" type="Sprite2D" parent="CompanyStateContainer"]
-position = Vector2(-40, 265)
+position = Vector2(-40, 354)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("6_23s3h")
 
@@ -90,7 +94,7 @@ text = "0"
 text_overrun_behavior = 1
 
 [node name="PublicRelationsIcon" type="Sprite2D" parent="CompanyStateContainer"]
-position = Vector2(-40, 324)
+position = Vector2(-40, 441)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("7_phrgc")
 
