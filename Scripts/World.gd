@@ -16,8 +16,7 @@ func _on_button_a_pressed() -> void:
 		tasks_left -= 1
 		$TaskControl.openTask()
 	else:
-		$TaskControl.visible = false
-		$QuarterControl/NextQuarterButton.visible = true
+		_end_quarter()
 	
 func _on_button_b_pressed() -> void: 
 	if $TaskControl.current_task.has("effects_b"):
@@ -29,13 +28,16 @@ func _on_button_b_pressed() -> void:
 		tasks_left -= 1
 		$TaskControl.openTask()
 	else:
-		$TaskControl.visible = false
-		$QuarterControl/NextQuarterButton.visible = true
+		_end_quarter()
 		
 func _next_quarter():
 	$QuarterControl/NextQuarterButton.visible = false
-	CompanyState.quarter_update()
-	$HUD.update_company_state()
 	$TaskControl.openTask()
 	$TaskControl.visible = true
 	tasks_left = 2
+
+func _end_quarter():
+	CompanyState.quarter_update()
+	$HUD.update_company_state()
+	$TaskControl.visible = false
+	$QuarterControl/NextQuarterButton.visible = true
