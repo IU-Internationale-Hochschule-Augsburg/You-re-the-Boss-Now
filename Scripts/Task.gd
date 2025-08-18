@@ -6,6 +6,7 @@ var current_task
 
 func _ready():
 	load_tasks("res://data/tasks.json") 
+	rng.randomize()
 
 func load_tasks(path: String):
 	var file = FileAccess.open(path, FileAccess.READ)
@@ -25,8 +26,7 @@ func load_tasks(path: String):
 		push_error("Failed to open file: " + path)
 
 func openTask():
-	rng.randomize()
-	var index = rng.randf_range(0, len(tasks)-1)
+	var index = rng.randi_range(0, len(tasks)-1)
 	current_task = tasks[index]
 	if current_task.has("prompt"):
 		$VBoxContainer/TaskLabel.text = current_task.get("prompt")
