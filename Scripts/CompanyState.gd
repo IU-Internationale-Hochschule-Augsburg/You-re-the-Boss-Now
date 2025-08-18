@@ -31,3 +31,7 @@ func get_state() -> Dictionary:
 		"employee_count": employee_count,
 		"employee_satisfaction": employee_satisfaction
 	}
+
+func quarter_update() -> void:
+	capital += monthly_turnover*3
+	capital -= running_costs*3

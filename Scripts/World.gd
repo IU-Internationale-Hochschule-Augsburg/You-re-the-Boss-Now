@@ -7,7 +7,6 @@ func _on_ceo_arrived_at_desk() -> void:
 	$HUD.visible = true
 	
 func _on_button_a_pressed() -> void:
-	print("a pressed")
 	if $TaskControl.current_task.has("effects_a"): 
 		CompanyState.apply_effects($TaskControl.current_task.get("effects_a"))
 		$HUD.update_company_state()
@@ -18,9 +17,9 @@ func _on_button_a_pressed() -> void:
 		$TaskControl.openTask()
 	else:
 		$TaskControl.visible = false
+		$QuarterControl/NextQuarterButton.visible = true
 	
 func _on_button_b_pressed() -> void: 
-	print("b pressed")
 	if $TaskControl.current_task.has("effects_b"):
 		CompanyState.apply_effects($TaskControl.current_task.get("effects_b"))
 		$HUD.update_company_state()
@@ -31,8 +30,12 @@ func _on_button_b_pressed() -> void:
 		$TaskControl.openTask()
 	else:
 		$TaskControl.visible = false
+		$QuarterControl/NextQuarterButton.visible = true
 		
 func _next_quarter():
+	$QuarterControl/NextQuarterButton.visible = false
+	CompanyState.quarter_update()
+	$HUD.update_company_state()
 	$TaskControl.openTask()
 	$TaskControl.visible = true
 	tasks_left = 2

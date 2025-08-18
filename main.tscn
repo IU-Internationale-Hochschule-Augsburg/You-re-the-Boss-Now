@@ -190,9 +190,9 @@ offset_bottom = 40.0
 [node name="NextQuarterButton" type="Button" parent="QuarterControl"]
 layout_mode = 0
 offset_left = -783.0
-offset_top = -402.0
-offset_right = -775.0
-offset_bottom = -394.0
+offset_top = -437.0
+offset_right = -672.0
+offset_bottom = -406.0
 text = "Next Quarter"
 
 [connection signal="arrived_at_desk" from="Ceo" to="." method="_on_ceo_arrived_at_desk"]
