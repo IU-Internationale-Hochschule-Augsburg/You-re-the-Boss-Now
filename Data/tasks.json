@@ -1,44 +1,422 @@
 [
-	{
-		"prompt": "Due to a shortage of Projects 5 of your employees don´t have any work to do. They don´t make any turnover, are you willing to keep these employees?",
-		"option_a": "Layoffs",
-		"option_b": "Keep Employees",
-		"effects_a": {
-			"capital": 0,
-			"monthly_turnover": -50000,
-			"running_costs": -25000,
-			"public_relations": 0,
-			"employee_count": -5,
-			"employee_satisfaction": -0.2
-		},
-		"effects_b": {
-			"capital": 0,
-			"monthly_turnover": -50000,
-			"running_costs": 0,
-			"public_relations": 0,
-			"employee_count": 0,
-			"employee_satisfaction": 0.1
-		}
+  {
+	"prompt": "Due to a shortage of Projects 5 of your employees don´t have any work to do. They don´t make any turnover, are you willing to keep these employees?",
+	"option_a": "Layoffs",
+	"option_b": "Keep Employees",
+	"effects_a": {
+	  "capital": 0,
+	  "monthly_turnover": -50000,
+	  "running_costs": -25000,
+	  "public_relations": 0,
+	  "employee_count": -5,
+	  "employee_satisfaction": -0.2
 	},
-	{
-		"prompt": "Your office coffee machine broke down. Do you replace it immediately or wait until next month?",
-		"option_a": "Replace Now",
-		"option_b": "Wait",
-		"effects_a": {
-			"capital": -1000,
-			"monthly_turnover": 0,
-			"running_costs": 0,
-			"public_relations": 0,
-			"employee_count": 0,
-			"employee_satisfaction": 0.1
-		},
-		"effects_b": {
-			"capital": 0,
-			"monthly_turnover": 0,
-			"running_costs": 0,
-			"public_relations": 0,
-			"employee_count": 0,
-			"employee_satisfaction": -0.1
-		}
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": -50000,
+	  "running_costs": 0,
+	  "public_relations": 0,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.1
 	}
+  },
+  {
+	"prompt": "Your office coffee machine broke down. Do you replace it immediately or wait until next month?",
+	"option_a": "Replace Now",
+	"option_b": "Wait",
+	"effects_a": {
+	  "capital": -1000,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": 0,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.1
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": 0,
+	  "employee_count": 0,
+	  "employee_satisfaction": -0.1
+	}
+  },
+  {
+	"prompt": "Your company's main server went down unexpectedly, affecting client access. Do you invest in emergency IT support or wait for your internal team to fix it?",
+	"option_a": "Emergency IT Support",
+	"option_b": "Wait for Internal Team",
+	"effects_a": {
+	  "capital": -3000,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": 0.2,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.1
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": -10000,
+	  "running_costs": 0,
+	  "public_relations": -0.2,
+	  "employee_count": 0,
+	  "employee_satisfaction": -0.1
+	}
+  },
+  {
+	"prompt": "A major client requests last-minute changes to a project. Do you approve overtime or delay delivery?",
+	"option_a": "Approve Overtime",
+	"option_b": "Delay Delivery",
+	"effects_a": {
+	  "capital": -2000,
+	  "monthly_turnover": 5000,
+	  "running_costs": 1000,
+	  "public_relations": 0.2,
+	  "employee_count": 0,
+	  "employee_satisfaction": -0.1
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": -5000,
+	  "running_costs": 0,
+	  "public_relations": -0.3,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.1
+	}
+  },
+  {
+	"prompt": "Two team members are in conflict, affecting productivity. Do you organize mediation or ignore it?",
+	"option_a": "Organize Mediation",
+	"option_b": "Ignore Conflict",
+	"effects_a": {
+	  "capital": -500,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": 0,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.2
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": -2000,
+	  "running_costs": 0,
+	  "public_relations": -0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": -0.2
+	}
+  },
+  {
+	"prompt": "You receive an offer for a discounted office renovation. Do you accept or decline?",
+	"option_a": "Accept Offer",
+	"option_b": "Decline Offer",
+	"effects_a": {
+	  "capital": -10000,
+	  "monthly_turnover": 0,
+	  "running_costs": -500,
+	  "public_relations": 0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.3
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": 0,
+	  "employee_count": 0,
+	  "employee_satisfaction": -0.1
+	}
+  },
+  {
+	"prompt": "A university proposes a partnership for an internship program. Do you accept or reject?",
+	"option_a": "Accept Program",
+	"option_b": "Reject Program",
+	"effects_a": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 500,
+	  "public_relations": 0.3,
+	  "employee_count": 2,
+	  "employee_satisfaction": 0.2
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": -0.2,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0
+	}
+  },
+  {
+	"prompt": "Your company is invited to sponsor a local tech conference. Do you accept the sponsorship or decline?",
+	"option_a": "Accept Sponsorship",
+	"option_b": "Decline",
+	"effects_a": {
+	  "capital": -7000,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": 0.4,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.1
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": -0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0
+	}
+  },
+  {
+	"prompt": "A new software update is available for your internal systems. Do you implement it now or wait for stability?",
+	"option_a": "Implement Now",
+	"option_b": "Wait",
+	"effects_a": {
+	  "capital": -2000,
+	  "monthly_turnover": 0,
+	  "running_costs": -300,
+	  "public_relations": 0,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.1
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": -1000,
+	  "running_costs": 0,
+	  "public_relations": -0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": -0.1
+	}
+  },
+  {
+	"prompt": "An employee suggests a new eco-friendly initiative. Do you support it or reject the idea?",
+	"option_a": "Support Initiative",
+	"option_b": "Reject Idea",
+	"effects_a": {
+	  "capital": -1500,
+	  "monthly_turnover": 0,
+	  "running_costs": -100,
+	  "public_relations": 0.3,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.2
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": -0.2,
+	  "employee_count": 0,
+	  "employee_satisfaction": -0.1
+	}
+  },
+  {
+	"prompt": "A client requests a refund due to dissatisfaction. Do you issue the refund or deny the request?",
+	"option_a": "Issue Refund",
+	"option_b": "Deny Request",
+	"effects_a": {
+	  "capital": -3000,
+	  "monthly_turnover": -2000,
+	  "running_costs": 0,
+	  "public_relations": 0.2,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": -5000,
+	  "running_costs": 0,
+	  "public_relations": -0.3,
+	  "employee_count": 0,
+	  "employee_satisfaction": -0.1
+	}
+  },
+  {
+	"prompt": "Your company is offered a bulk discount on office supplies. Do you purchase now or continue regular orders?",
+	"option_a": "Purchase Bulk",
+	"option_b": "Continue Regular Orders",
+	"effects_a": {
+	  "capital": -5000,
+	  "monthly_turnover": 0,
+	  "running_costs": -1000,
+	  "public_relations": 0,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.1
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": 0,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0
+	}
+  },
+  {
+	"prompt": "A new intern proposes a cost-saving automation script. Do you implement it or ignore the suggestion?",
+	"option_a": "Implement Script",
+	"option_b": "Ignore Suggestion",
+	"effects_a": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": -500,
+	  "public_relations": 0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.2
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": -0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": -0.1
+	}
+  },
+  {
+	"prompt": "Your team requests a team-building retreat. Do you approve the budget or postpone?",
+	"option_a": "Approve Retreat",
+	"option_b": "Postpone",
+	"effects_a": {
+	  "capital": -4000,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": 0.2,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.3
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": -0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": -0.2
+	}
+  },
+  {
+	"prompt": "A supplier offers a new contract with better terms. Do you switch suppliers or stay loyal?",
+	"option_a": "Switch Supplier",
+	"option_b": "Stay Loyal",
+	"effects_a": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": -1000,
+	  "public_relations": 0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.1
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": -0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0
+	}
+  },
+  {
+	"prompt": "Your company is invited to join a business award competition. Do you participate or decline?",
+	"option_a": "Participate",
+	"option_b": "Decline",
+	"effects_a": {
+	  "capital": -1000,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": 0.3,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.1
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": -0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0
+	}
+  },
+  {
+	"prompt": "A new competitor enters the market. Do you increase advertising or reduce prices?",
+	"option_a": "Increase Advertising",
+	"option_b": "Reduce Prices",
+	"effects_a": {
+	  "capital": -6000,
+	  "monthly_turnover": 8000,
+	  "running_costs": 1000,
+	  "public_relations": 0.2,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.1
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 4000,
+	  "running_costs": -500,
+	  "public_relations": -0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0
+	}
+  },
+  {
+	"prompt": "Your company receives negative online reviews. Do you respond publicly or ignore them?",
+	"option_a": "Respond Publicly",
+	"option_b": "Ignore Reviews",
+	"effects_a": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": 0.3,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.1
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": -2000,
+	  "running_costs": 0,
+	  "public_relations": -0.3,
+	  "employee_count": 0,
+	  "employee_satisfaction": -0.1
+	}
+  },
+  {
+	"prompt": "An employee requests training for a new skill. Do you fund the training or decline?",
+	"option_a": "Fund Training",
+	"option_b": "Decline Request",
+	"effects_a": {
+	  "capital": -2500,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": 0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0.2
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": -0.1,
+	  "employee_count": 0,
+	  "employee_satisfaction": -0.2
+	}
+  },
+  {
+	"prompt": "Your company is offered a partnership with a startup. Do you accept or reject?",
+	"option_a": "Accept Partnership",
+	"option_b": "Reject Offer",
+	"effects_a": {
+	  "capital": -5000,
+	  "monthly_turnover": 10000,
+	  "running_costs": 2000,
+	  "public_relations": 0.3,
+	  "employee_count": 1,
+	  "employee_satisfaction": 0.2
+	},
+	"effects_b": {
+	  "capital": 0,
+	  "monthly_turnover": 0,
+	  "running_costs": 0,
+	  "public_relations": -0.2,
+	  "employee_count": 0,
+	  "employee_satisfaction": 0
+	}
+  }
 ]
