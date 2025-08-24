@@ -32,7 +32,7 @@ func _on_button_b_pressed() -> void:
 		_end_quarter()
 		
 func _next_quarter():
-	$QuarterControl/NextQuarterButton.visible = false
+	$QuarterControl.visible = false
 	$TaskControl.openTask()
 	$TaskControl.visible = true
 	tasks_left = 2
@@ -46,7 +46,7 @@ func _end_quarter():
 		$GameOverControl/VBoxContainer/GameOverLabel.text = "GAME OVER\n" + game_over[1]
 		$GameOverControl.visible = true
 	else:
-		$QuarterControl/NextQuarterButton.visible = true
+		$QuarterControl.visible = true
 
 func _restart_game():
 	CompanyState.reset()
