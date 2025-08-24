@@ -43,5 +43,6 @@ func _end_quarter():
 	var game_over = CompanyState.is_game_over()
 	if game_over[0]:
 		$GameOverControl/VBoxContainer/GameOverLabel.text = "GAME OVER\n" + game_over[1]
+		$GameOverControl.visible = true
 	else:
 		$QuarterControl/NextQuarterButton.visible = true
