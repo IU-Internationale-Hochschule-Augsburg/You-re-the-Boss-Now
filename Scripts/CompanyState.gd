@@ -35,3 +35,11 @@ func get_state() -> Dictionary:
 func quarter_update() -> void:
 	capital += monthly_turnover*3
 	capital -= running_costs*3
+	clamp_metrics()
+
+func is_game_over() -> Array:
+	if capital == 0:
+		return  [true, "You are bankrupt"]
+	if employee_count == 0:
+		return [true, "All of your employees left the company"]
+	return [false, ""]

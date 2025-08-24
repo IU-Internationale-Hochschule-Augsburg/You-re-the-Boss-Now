@@ -195,6 +195,45 @@ offset_right = -672.0
 offset_bottom = -406.0
 text = "Next Quarter"
 
+[node name="GameOverControl" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -337.5
+offset_top = -19.0
+offset_right = 112.5
+offset_bottom = 101.0
+
+[node name="ColorRect" type="ColorRect" parent="GameOverControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.145098, 0.145098, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="GameOverControl/VBoxContainer"]
+custom_minimum_size = Vector2(0.1, 85)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "test"
+horizontal_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 2
+
+[node name="RestartButton" type="Button" parent="GameOverControl/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
 [connection signal="arrived_at_desk" from="Ceo" to="." method="_on_ceo_arrived_at_desk"]
 [connection signal="animation_finished" from="Ceo/PositionAnimationPlayer" to="Ceo" method="_on_position_animation_player_animation_finished"]
 [connection signal="pressed" from="TaskControl/VBoxContainer/HBoxContainer/AButton" to="." method="_on_button_a_pressed"]

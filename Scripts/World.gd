@@ -40,4 +40,8 @@ func _end_quarter():
 	CompanyState.quarter_update()
 	$HUD.update_company_state()
 	$TaskControl.visible = false
-	$QuarterControl/NextQuarterButton.visible = true
+	var game_over = CompanyState.is_game_over()
+	if game_over[0]:
+		$GameOverControl/VBoxContainer/GameOverLabel.text = "GAME OVER\n" + game_over[1]
+	else:
+		$QuarterControl/NextQuarterButton.visible = true
