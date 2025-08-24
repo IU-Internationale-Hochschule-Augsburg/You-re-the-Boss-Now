@@ -5,6 +5,7 @@ func _on_ceo_arrived_at_desk() -> void:
 	#$Control.visible = true
 	$HUD.update_company_state()
 	$HUD.visible = true
+	_next_quarter()
 	
 func _on_button_a_pressed() -> void:
 	if $TaskControl.current_task.has("effects_a"): 
@@ -46,3 +47,9 @@ func _end_quarter():
 		$GameOverControl.visible = true
 	else:
 		$QuarterControl/NextQuarterButton.visible = true
+
+func _restart_game():
+	CompanyState.reset()
+	$HUD.update_company_state()
+	$GameOverControl.visible = false
+	_next_quarter()

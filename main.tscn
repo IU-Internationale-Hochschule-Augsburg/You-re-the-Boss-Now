@@ -239,3 +239,4 @@ text = "Restart"
 [connection signal="pressed" from="TaskControl/VBoxContainer/HBoxContainer/AButton" to="." method="_on_button_a_pressed"]
 [connection signal="pressed" from="TaskControl/VBoxContainer/HBoxContainer/BButton" to="." method="_on_button_b_pressed"]
 [connection signal="pressed" from="QuarterControl/NextQuarterButton" to="." method="_next_quarter"]
+[connection signal="pressed" from="GameOverControl/VBoxContainer/RestartButton" to="." method="_restart_game"]

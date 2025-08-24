@@ -21,6 +21,7 @@ func clamp_metrics() -> void:
 	employee_count = int(max(employee_count, 0))
 	capital = max(capital, 0)
 	running_costs = max(running_costs, 10000)
+	monthly_turnover = max(monthly_turnover, 0)
 
 func get_state() -> Dictionary:
 	return {
@@ -43,3 +44,12 @@ func is_game_over() -> Array:
 	if employee_count == 0:
 		return [true, "All of your employees left the company"]
 	return [false, ""]
+
+func reset() -> void:
+	capital = 100000
+	monthly_turnover = 60000
+	running_costs = 50000
+	product_portfolio = 1
+	public_relations = .1
+	employee_count = 10
+	employee_satisfaction = .7
