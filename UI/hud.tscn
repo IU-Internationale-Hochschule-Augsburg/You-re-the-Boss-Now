@@ -125,5 +125,3 @@ layout_mode = 2
 theme = ExtResource("2_bytes")
 text = "Quarter: 1"
 text_overrun_behavior = 1
-
-

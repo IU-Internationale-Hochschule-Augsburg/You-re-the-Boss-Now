@@ -7,7 +7,7 @@ extends Node
 @export var public_relations = .1
 @export var employee_count = 10
 @export var employee_satisfaction = .7
-var quarter = 1
+var quarter = 0
 var year = 1
 
 func apply_effects(effects: Dictionary) -> void:
