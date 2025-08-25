@@ -13,7 +13,7 @@ config_version=5
 config/name="You´re the Boss Now"
 run/main_scene="uid://c5vvvqe3m4f35"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://Assets/icon.svg"
+config/icon="res://Assets/Icons/icon_godot.svg"
 
 [autoload]
 

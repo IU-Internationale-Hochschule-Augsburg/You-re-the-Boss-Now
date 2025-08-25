@@ -103,3 +103,27 @@ layout_mode = 2
 theme = ExtResource("2_bytes")
 text = "0"
 text_overrun_behavior = 1
+
+[node name="YearIcon" type="Sprite2D" parent="CompanyStateContainer"]
+position = Vector2(-40, 527)
+scale = Vector2(0.05, 0.046)
+texture = ExtResource("1_0j753")
+
+[node name="YearLabel" type="Label" parent="CompanyStateContainer"]
+layout_mode = 2
+theme = ExtResource("2_bytes")
+text = "Year: 1"
+text_overrun_behavior = 1
+
+[node name="QuarterIcon" type="Sprite2D" parent="CompanyStateContainer"]
+position = Vector2(-40, 633)
+scale = Vector2(0.05, 0.046)
+texture = ExtResource("1_0j753")
+
+[node name="QuarterLabel" type="Label" parent="CompanyStateContainer"]
+layout_mode = 2
+theme = ExtResource("2_bytes")
+text = "Quarter: 1"
+text_overrun_behavior = 1
+
+
