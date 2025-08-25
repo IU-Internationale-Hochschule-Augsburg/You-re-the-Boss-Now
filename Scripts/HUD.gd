@@ -19,3 +19,9 @@ func update_company_state():
 	$CompanyStateContainer/CapitalLabel.text = num_shorten(states.get("capital")) + "€"
 	$CompanyStateContainer/RunningCostsLabel.text = num_shorten(states.get("running_costs")) + "€"
 	$CompanyStateContainer/MonthlyTurnoverLabel.text = num_shorten(states.get("monthly_turnover")) + "€"
+
+func update_year(year):
+	$CompanyStateContainer/YearLabel.text = "Year: " + str(year)
+
+func update_quarter(quarter):
+	$CompanyStateContainer/QuarterLabel.text = "Q: " + str(quarter)

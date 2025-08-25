@@ -2,12 +2,13 @@ extends Node
 var tasks_left = 0
 
 func _on_ceo_arrived_at_desk() -> void:
+	_update_time_display()
 	$HUD.update_company_state()
 	$HUD.visible = true
 	_next_quarter_1()
 	
 func _on_button_a_pressed() -> void:
-	if $TaskControl.current_task.has("effects_a"): 
+	if $TaskControl.current_task.has("effects_a"):
 		CompanyState.apply_effects($TaskControl.current_task.get("effects_a"))
 		$HUD.update_company_state()
 	else:
@@ -31,6 +32,9 @@ func _on_button_b_pressed() -> void:
 		_end_quarter_1()
 		
 func _next_quarter_1():
+	CompanyState.quarter_update()
+	_update_time_display()
+	$HUD.update_company_state()
 	$QuarterControl.visible = false
 	$Employee1.walk_in()
 
@@ -40,7 +44,6 @@ func _next_quarter_2():
 	tasks_left = 2
 
 func _end_quarter_1():
-	CompanyState.quarter_update()
 	$HUD.update_company_state()
 	$TaskControl.visible = false
 	$Employee1.walk_out()
@@ -55,6 +58,10 @@ func _end_quarter_2():
 
 func _restart_game():
 	CompanyState.reset()
-	$HUD.update_company_state()
+	_on_ceo_arrived_at_desk()
 	$GameOverControl.visible = false
-	_next_quarter_1()
+
+func _update_time_display():
+	var state = CompanyState.get_state()
+	$HUD.update_year(state["year"])
+	$HUD.update_quarter(state["quarter"])
