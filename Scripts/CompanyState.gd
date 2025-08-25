@@ -7,6 +7,8 @@ extends Node
 @export var public_relations = .1
 @export var employee_count = 10
 @export var employee_satisfaction = .7
+var quarter = 1
+var year = 1
 
 func apply_effects(effects: Dictionary) -> void:
 	for key in effects.keys():
@@ -30,12 +32,18 @@ func get_state() -> Dictionary:
 		"running_costs": running_costs,
 		"public_relations": public_relations,
 		"employee_count": employee_count,
-		"employee_satisfaction": employee_satisfaction
+		"employee_satisfaction": employee_satisfaction,
+		"year": year,
+		"quarter": quarter
 	}
 
 func quarter_update() -> void:
 	capital += monthly_turnover*3
 	capital -= running_costs*3
+	quarter += 1
+	if quarter > 4:
+		quarter = 1
+		year += 1
 	clamp_metrics()
 
 func is_game_over() -> Array:
@@ -53,3 +61,5 @@ func reset() -> void:
 	public_relations = .1
 	employee_count = 10
 	employee_satisfaction = .7
+	quarter = 1
+	year = 1
