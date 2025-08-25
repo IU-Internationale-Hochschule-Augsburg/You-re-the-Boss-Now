@@ -38,7 +38,6 @@ func _next_quarter_2():
 	$TaskControl.openTask()
 	$TaskControl.visible = true
 	tasks_left = 2
-	print($TaskControl.visible)
 
 func _end_quarter_1():
 	CompanyState.quarter_update()
