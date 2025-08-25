@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5vvvqe3m4f35"]
+[gd_scene load_steps=17 format=3 uid="uid://c5vvvqe3m4f35"]
 
 [ext_resource type="Script" uid="uid://bh6ngqtdvtdc2" path="res://Scripts/World.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ddxowfc7cw38p" path="res://Assets/Environment/Office.png" id="1_h2yge"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://do3u8m48x1hbt" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://dojhi8fiftkj3" path="res://UI/hud.tscn" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://c1i85y8r6eh24" path="res://Scripts/HUD.gd" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://dmgk4l12ci1gv" path="res://Assets/Characters/Woman.png" id="10_4c57u"]
 
 [sub_resource type="Animation" id="Animation_272bh"]
 length = 0.001
@@ -66,7 +67,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_4c57u"]
 resource_name = "enter_left"
-length = 4.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -74,10 +75,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4, 1.43333, 2.4, 3.33333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.4, 1.43333, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-900, 200), Vector2(-450, 250), Vector2(-450, 100), Vector2(0, 100)]
+"values": [Vector2(-900, 200), Vector2(-550, 200), Vector2(-450, 100)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_efxa6"]
@@ -244,9 +245,25 @@ text_overrun_behavior = 2
 layout_mode = 2
 text = "Restart"
 
-[connection signal="arrived_at_desk" from="Ceo" to="." method="_on_ceo_arrived_at_desk"]
+[node name="Employee1" type="Sprite2D" parent="."]
+position = Vector2(-601, 122)
+scale = Vector2(0.506836, 0.648438)
+texture = ExtResource("10_4c57u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Employee1"]
+libraries = {
+&"": SubResource("AnimationLibrary_5vw27")
+}
+speed_scale = 4.0
+
+[node name="PositionAnimationPlayer" type="AnimationPlayer" parent="Employee1"]
+libraries = {
+&"": SubResource("AnimationLibrary_efxa6")
+}
+
 [connection signal="animation_finished" from="Ceo/PositionAnimationPlayer" to="Ceo" method="_on_position_animation_player_animation_finished"]
 [connection signal="pressed" from="TaskControl/VBoxContainer/HBoxContainer/AButton" to="." method="_on_button_a_pressed"]
 [connection signal="pressed" from="TaskControl/VBoxContainer/HBoxContainer/BButton" to="." method="_on_button_b_pressed"]
 [connection signal="pressed" from="QuarterControl/NextQuarterButton" to="." method="_next_quarter"]
 [connection signal="pressed" from="GameOverControl/VBoxContainer/RestartButton" to="." method="_restart_game"]
+[connection signal="animation_finished" from="Employee1/PositionAnimationPlayer" to="Employee1" method="_on_position_animation_player_animation_finished"]

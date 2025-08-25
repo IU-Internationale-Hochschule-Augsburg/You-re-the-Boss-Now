@@ -53,3 +53,7 @@ func _restart_game():
 	$HUD.update_company_state()
 	$GameOverControl.visible = false
 	_next_quarter()
+
+
+func _on_walk_in_finished(anim_name: StringName) -> void:
+	pass # Replace with function body.
