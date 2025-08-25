@@ -2,10 +2,9 @@ extends Node
 var tasks_left = 0
 
 func _on_ceo_arrived_at_desk() -> void:
-	#$Control.visible = true
 	$HUD.update_company_state()
 	$HUD.visible = true
-	_next_quarter()
+	_next_quarter_1()
 	
 func _on_button_a_pressed() -> void:
 	if $TaskControl.current_task.has("effects_a"): 
@@ -17,7 +16,7 @@ func _on_button_a_pressed() -> void:
 		tasks_left -= 1
 		$TaskControl.openTask()
 	else:
-		_end_quarter()
+		_end_quarter_1()
 	
 func _on_button_b_pressed() -> void: 
 	if $TaskControl.current_task.has("effects_b"):
@@ -29,18 +28,27 @@ func _on_button_b_pressed() -> void:
 		tasks_left -= 1
 		$TaskControl.openTask()
 	else:
-		_end_quarter()
+		_end_quarter_1()
 		
-func _next_quarter():
+func _next_quarter_1():
 	$QuarterControl.visible = false
+	$Employee1.walk_in()
+	print("walk in")
+
+func _next_quarter_2():
+	print("inside")
 	$TaskControl.openTask()
 	$TaskControl.visible = true
 	tasks_left = 2
+	print($TaskControl.visible)
 
-func _end_quarter():
+func _end_quarter_1():
 	CompanyState.quarter_update()
 	$HUD.update_company_state()
 	$TaskControl.visible = false
+	$Employee1.walk_out()
+
+func _end_quarter_2():
 	var game_over = CompanyState.is_game_over()
 	if game_over[0]:
 		$GameOverControl/VBoxContainer/GameOverLabel.text = "GAME OVER\n" + game_over[1]
@@ -52,8 +60,4 @@ func _restart_game():
 	CompanyState.reset()
 	$HUD.update_company_state()
 	$GameOverControl.visible = false
-	_next_quarter()
-
-
-func _on_walk_in_finished(anim_name: StringName) -> void:
-	pass # Replace with function body.
+	_next_quarter_1()

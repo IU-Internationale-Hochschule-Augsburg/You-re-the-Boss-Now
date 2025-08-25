@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c5vvvqe3m4f35"]
+[gd_scene load_steps=20 format=3 uid="uid://c5vvvqe3m4f35"]
 
 [ext_resource type="Script" uid="uid://bh6ngqtdvtdc2" path="res://Scripts/World.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ddxowfc7cw38p" path="res://Assets/Environment/Office.png" id="1_h2yge"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dojhi8fiftkj3" path="res://UI/hud.tscn" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://c1i85y8r6eh24" path="res://Scripts/HUD.gd" id="7_272bh"]
 [ext_resource type="Texture2D" uid="uid://dmgk4l12ci1gv" path="res://Assets/Characters/Woman.png" id="10_4c57u"]
+[ext_resource type="Script" uid="uid://dpo00hlhb0ogm" path="res://employee_1.gd" id="11_efxa6"]
 
 [sub_resource type="Animation" id="Animation_272bh"]
 length = 0.001
@@ -64,6 +65,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(-601, 122)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Ceo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-900, 200)]
+}
 
 [sub_resource type="Animation" id="Animation_4c57u"]
 resource_name = "enter_left"
@@ -81,10 +94,43 @@ tracks/0/keys = {
 "values": [Vector2(-900, 200), Vector2(-550, 200), Vector2(-450, 100)]
 }
 
+[sub_resource type="Animation" id="Animation_dg77c"]
+resource_name = "leave_left"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 1.4, 3.83333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-450, 100), Vector2(100, 170), Vector2(700, 170)]
+}
+
+[sub_resource type="Animation" id="Animation_efxa6"]
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Ceo:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 1.43333, 2.4, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-900, 200), Vector2(-450, 250), Vector2(-450, 100), Vector2(0, 100)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_efxa6"]
 _data = {
 &"RESET": SubResource("Animation_kek77"),
-&"enter_left": SubResource("Animation_4c57u")
+&"employee_enter_left": SubResource("Animation_4c57u"),
+&"employee_leave_right": SubResource("Animation_dg77c"),
+&"enter_left": SubResource("Animation_efxa6")
 }
 
 [node name="World" type="Node2D"]
@@ -97,7 +143,7 @@ offset = Vector2(-125, 0)
 [node name="Camera2D" type="Camera2D" parent="Office2"]
 
 [node name="Ceo" type="Sprite2D" parent="."]
-position = Vector2(-601, 122)
+position = Vector2(-900, 200)
 scale = Vector2(0.506836, 0.648438)
 texture = ExtResource("2_1bvp3")
 script = ExtResource("3_lquwl")
@@ -249,6 +295,7 @@ text = "Restart"
 position = Vector2(-601, 122)
 scale = Vector2(0.506836, 0.648438)
 texture = ExtResource("10_4c57u")
+script = ExtResource("11_efxa6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Employee1"]
 libraries = {
@@ -261,9 +308,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_efxa6")
 }
 
+[connection signal="arrived_at_desk" from="Ceo" to="." method="_on_ceo_arrived_at_desk"]
 [connection signal="animation_finished" from="Ceo/PositionAnimationPlayer" to="Ceo" method="_on_position_animation_player_animation_finished"]
 [connection signal="pressed" from="TaskControl/VBoxContainer/HBoxContainer/AButton" to="." method="_on_button_a_pressed"]
 [connection signal="pressed" from="TaskControl/VBoxContainer/HBoxContainer/BButton" to="." method="_on_button_b_pressed"]
 [connection signal="pressed" from="QuarterControl/NextQuarterButton" to="." method="_next_quarter"]
 [connection signal="pressed" from="GameOverControl/VBoxContainer/RestartButton" to="." method="_restart_game"]
+[connection signal="arrived_at_desk" from="Employee1" to="." method="_next_quarter_2"]
+[connection signal="left_office" from="Employee1" to="." method="_end_quarter_2"]
 [connection signal="animation_finished" from="Employee1/PositionAnimationPlayer" to="Employee1" method="_on_position_animation_player_animation_finished"]
