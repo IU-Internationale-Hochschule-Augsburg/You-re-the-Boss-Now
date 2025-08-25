@@ -33,10 +33,8 @@ func _on_button_b_pressed() -> void:
 func _next_quarter_1():
 	$QuarterControl.visible = false
 	$Employee1.walk_in()
-	print("walk in")
 
 func _next_quarter_2():
-	print("inside")
 	$TaskControl.openTask()
 	$TaskControl.visible = true
 	tasks_left = 2
