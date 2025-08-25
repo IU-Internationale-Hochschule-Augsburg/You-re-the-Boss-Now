@@ -2,7 +2,6 @@ extends Node
 var tasks_left = 0
 
 func _on_ceo_arrived_at_desk() -> void:
-	_update_time_display()
 	$HUD.update_company_state()
 	$HUD.visible = true
 	_next_quarter_1()
