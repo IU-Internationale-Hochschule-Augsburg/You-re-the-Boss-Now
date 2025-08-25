@@ -1,7 +1,7 @@
 extends Node
 
 @export var capital = 100000
-@export var monthly_turnover = 100000
+@export var monthly_turnover = 60000
 @export var running_costs = 50000
 @export var product_portfolio = 1
 @export var public_relations = .1
@@ -21,6 +21,7 @@ func clamp_metrics() -> void:
 	employee_count = int(max(employee_count, 0))
 	capital = max(capital, 0)
 	running_costs = max(running_costs, 10000)
+	monthly_turnover = max(monthly_turnover, 0)
 
 func get_state() -> Dictionary:
 	return {
@@ -35,3 +36,20 @@ func get_state() -> Dictionary:
 func quarter_update() -> void:
 	capital += monthly_turnover*3
 	capital -= running_costs*3
+	clamp_metrics()
+
+func is_game_over() -> Array:
+	if capital == 0:
+		return  [true, "You are bankrupt"]
+	if employee_count == 0:
+		return [true, "All of your employees left the company"]
+	return [false, ""]
+
+func reset() -> void:
+	capital = 100000
+	monthly_turnover = 60000
+	running_costs = 50000
+	product_portfolio = 1
+	public_relations = .1
+	employee_count = 10
+	employee_satisfaction = .7

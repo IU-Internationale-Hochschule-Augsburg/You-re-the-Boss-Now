@@ -5,6 +5,7 @@ func _on_ceo_arrived_at_desk() -> void:
 	#$Control.visible = true
 	$HUD.update_company_state()
 	$HUD.visible = true
+	_next_quarter()
 	
 func _on_button_a_pressed() -> void:
 	if $TaskControl.current_task.has("effects_a"): 
@@ -31,7 +32,7 @@ func _on_button_b_pressed() -> void:
 		_end_quarter()
 		
 func _next_quarter():
-	$QuarterControl/NextQuarterButton.visible = false
+	$QuarterControl.visible = false
 	$TaskControl.openTask()
 	$TaskControl.visible = true
 	tasks_left = 2
@@ -40,4 +41,15 @@ func _end_quarter():
 	CompanyState.quarter_update()
 	$HUD.update_company_state()
 	$TaskControl.visible = false
-	$QuarterControl/NextQuarterButton.visible = true
+	var game_over = CompanyState.is_game_over()
+	if game_over[0]:
+		$GameOverControl/VBoxContainer/GameOverLabel.text = "GAME OVER\n" + game_over[1]
+		$GameOverControl.visible = true
+	else:
+		$QuarterControl.visible = true
+
+func _restart_game():
+	CompanyState.reset()
+	$HUD.update_company_state()
+	$GameOverControl.visible = false
+	_next_quarter()
